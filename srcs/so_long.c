@@ -32,8 +32,8 @@ void load_images(t_game *game)
 
     game->img_wall = mlx_xpm_file_to_image(game->mlx, "wall.xpm", &width, &height);
     game->img_floor = mlx_xpm_file_to_image(game->mlx, "floor.xpm", &width, &height);
-    game->img_player = mlx_xpm_file_to_image(game->mlx, "../imgs/PLYR.xpm", &width, &height);
-    game->img_collect = mlx_xpm_file_to_image(game->mlx, "collect.xpm", &width, &height);
+    game->img_player = mlx_xpm_file_to_image(game->mlx, "PLYR.xpm", &width, &height);
+    game->img_collect = mlx_xpm_file_to_image(game->mlx, "Whiskey.xpm", &width, &height);
     game->img_exit = mlx_xpm_file_to_image(game->mlx, "exit.xpm", &width, &height);
 }
 
