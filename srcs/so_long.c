@@ -6,7 +6,7 @@
 /*   By: diegrod2 <diegrod2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:00:21 by diegrod2          #+#    #+#             */
-/*   Updated: 2025/02/24 11:00:21 by diegrod2         ###   ########.fr       */
+/*   Updated: 2025/02/27 13:10:28 by diegrod2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void load_images(t_game *game)
     int width;
     int height;
 
-    game->img_wall = mlx_xpm_file_to_image(game->mlx, "wall.xpm", &width, &height);
-    game->img_floor = mlx_xpm_file_to_image(game->mlx, "floor.xpm", &width, &height);
+    game->img_wall = mlx_xpm_file_to_image(game->mlx, "Trees.xpm", &width, &height);
+    game->img_floor = mlx_xpm_file_to_image(game->mlx, "Interface.xpm", &width, &height);
     game->img_player = mlx_xpm_file_to_image(game->mlx, "PLYR.xpm", &width, &height);
     game->img_collect = mlx_xpm_file_to_image(game->mlx, "Whiskey.xpm", &width, &height);
     game->img_exit = mlx_xpm_file_to_image(game->mlx, "exit.xpm", &width, &height);
