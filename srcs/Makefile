@@ -1,38 +1,37 @@
-NAME: so_long
-SRC = $(addprefix src/, main.c game.c)
-OBJ := $(SRC:%.c=%.o)
+NAME = so_long
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+
+SRCS = $(wildcard src/*.c)
+OBJS = $(SRCS:src/%.c=src/%.o)
 
 ifeq ($(shell uname), Linux)
 	INCLUDES = -I/usr/include -Imlx
-else
-	INCLUDES = -I/opt/X11/include -Imlx
-endif
-
-MLX_DIR = ./mlx
-MLX_LIB = $(MLX_DIR)/libmlx_$(UNAME).a
-ifeq ($(shell uname), Linux)
 	MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
 else
+	INCLUDES = -I/opt/X11/include -Imlx
 	MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
 endif
 
-all: $(MLX_LIB) $(NAME)
+MLX_DIR = ./mlx
+MLX_LIB = $(MLX_DIR)/libmlx.a
 
-.c.o:
-	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
+all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX_FLAGS)
+$(NAME): $(OBJS) $(MLX_LIB)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(MLX_FLAGS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
 
 $(MLX_LIB):
 	@make -C $(MLX_DIR)
 
-
 clean:
-	rm -f $(OBJ) $(GNL_OBJ) $(PRINTF_OBJ)
+	rm -f $(OBJS)
 
 fclean: clean
 	make clean -C mlx/
 	rm -f $(NAME)
 
-re : fclean all
+re: fclean all
