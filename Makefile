@@ -2,15 +2,16 @@ NAME = so_long
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = $(wildcard src/*.c)
-OBJS = $(SRCS:src/%.c=src/%.o)
+SRCS = $(wildcard srcs/*.c)   # All .c files in srcs/ directory
+OBJS = $(SRCS:.c=.o)           # Convert .c to .o for object files
+INCLUDES = -I/usr/include -Imlx
 
 ifeq ($(shell uname), Linux)
-	INCLUDES = -I/usr/include -Imlx
-	MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
+    INCLUDES = -Imlx -I/usr/include
+    MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
 else
-	INCLUDES = -I/opt/X11/include -Imlx
-	MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
+    INCLUDES = -Imlx -I/opt/X11/include
+    MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
 endif
 
 MLX_DIR = ./mlx
