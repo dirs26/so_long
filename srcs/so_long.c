@@ -6,7 +6,7 @@
 /*   By: diegrod2 <diegrod2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:00:21 by diegrod2          #+#    #+#             */
-/*   Updated: 2025/03/03 14:38:51 by diegrod2         ###   ########.fr       */
+/*   Updated: 2025/03/05 14:19:34 by diegrod2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ int main() {
     }
 
     // Load the map from a .ber file
-    game.map = load_map("map.ber");
+    game.map = load_map("./map.ber");
     if (!game.map) {
         fprintf(stderr, "Error: Failed to load map\n");
         return (1); // Exit with error
