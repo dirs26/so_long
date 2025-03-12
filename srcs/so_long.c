@@ -6,7 +6,7 @@
 /*   By: diegrod2 <diegrod2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:00:21 by diegrod2          #+#    #+#             */
-/*   Updated: 2025/03/05 14:19:34 by diegrod2         ###   ########.fr       */
+/*   Updated: 2025/03/12 13:47:17 by diegrod2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ char **load_map(const char *filename)
     {
         if (i >= map_size)
         {
-            map_size *= 2;  // Double the map size when needed
             map = realloc(map, sizeof(char *) * map_size);
             if (!map)
             {
@@ -67,33 +66,33 @@ void load_images(t_game *game) {
     int width;
     int height;
 
-    game->img_wall = mlx_xpm_file_to_image(game->mlx, "imgs/Trees.xpm", &width, &height);
+    game->img_wall = mlx_xpm_file_to_image(game->mlx, "imgs/cloud2.xpm", &width, &height);
     if (!game->img_wall) {
-        fprintf(stderr, "Error: Failed to load Trees.xpm\n");
+        fprintf(stderr, "Error: Failed to load cloud2.xpm\n");
         exit(1); // Exit on error
     }
 
-    game->img_floor = mlx_xpm_file_to_image(game->mlx, "imgs/Interface.xpm", &width, &height);
+    game->img_floor = mlx_xpm_file_to_image(game->mlx, "imgs/blue.xpm", &width, &height);
     if (!game->img_floor) {
-        fprintf(stderr, "Error: Failed to load Interface.xpm\n");
+        fprintf(stderr, "Error: Failed to load blue.xpm\n");
         exit(1);
     }
 
-    game->img_player = mlx_xpm_file_to_image(game->mlx, "imgs/PLYR.xpm", &width, &height);
+    game->img_player = mlx_xpm_file_to_image(game->mlx, "imgs/avion.xpm", &width, &height);
     if (!game->img_player) {
-        fprintf(stderr, "Error: Failed to load PLYR.xpm\n");
+        fprintf(stderr, "Error: Failed to load avion.xpm\n");
         exit(1);
     }
 
-    game->img_collect = mlx_xpm_file_to_image(game->mlx, "imgs/Whiskey.xpm", &width, &height);
+    game->img_collect = mlx_xpm_file_to_image(game->mlx, "imgs/bomb.xpm", &width, &height);
     if (!game->img_collect) {
-        fprintf(stderr, "Error: Failed to load Whiskey.xpm\n");
+        fprintf(stderr, "Error: Failed to load bomb.xpm\n");
         exit(1);
     }
 
-    game->img_exit = mlx_xpm_file_to_image(game->mlx, "imgs/exit.xpm", &width, &height);
+    game->img_exit = mlx_xpm_file_to_image(game->mlx, "imgs/porta.xpm", &width, &height);
     if (!game->img_exit) {
-        fprintf(stderr, "Error: Failed to load exit.xpm\n");
+        fprintf(stderr, "Error: Failed to load porta.xpm\n");
         exit(1);
     }
 }
@@ -105,7 +104,7 @@ void render_map(t_game *game) {
 
     for (y = 0; game->map[y]; y++) {
         for (x = 0; game->map[y][x]; x++) {
-            void *img = game->img_floor; // Default to floor
+
             if (game->map[y][x] == '1') {
                 img = game->img_wall; // Wall
             } else if (game->map[y][x] == 'P') {
@@ -114,11 +113,6 @@ void render_map(t_game *game) {
                 img = game->img_collect; // Collectable
             } else if (game->map[y][x] == 'E') {
                 img = game->img_exit; // Exit
-            }
-
-            if (img == NULL) {
-                fprintf(stderr, "Error: NULL image for tile at (%d, %d)\n", x, y);
-                continue; // Skip invalid tiles
             }
 
             // Place the image in the window at the appropriate position
