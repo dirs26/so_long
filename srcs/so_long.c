@@ -6,12 +6,11 @@
 /*   By: diegrod2 <diegrod2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:00:21 by diegrod2          #+#    #+#             */
-/*   Updated: 2025/03/14 13:20:14 by diegrod2         ###   ########.fr       */
+/*   Updated: 2025/03/14 13:50:42 by diegrod2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "get_next_line.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -21,7 +20,7 @@
 // Function to load map dynamically
 char **load_map(const char *filename)
 {
-    int fd = open(filename, O_RDONLY);
+    int fd = popen(filename, O_RDONLY);
     if (fd == -1)
     {
         perror("Error opening map file");
