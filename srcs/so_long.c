@@ -6,7 +6,7 @@
 /*   By: diegrod2 <diegrod2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:00:21 by diegrod2          #+#    #+#             */
-/*   Updated: 2025/03/12 13:47:17 by diegrod2         ###   ########.fr       */
+/*   Updated: 2025/03/14 13:20:14 by diegrod2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char **load_map(const char *filename)
     return map;
 }
 
-// Function to load images (as previously defined)
+// Function to load images
 void load_images(t_game *game) {
     int width;
     int height;
@@ -97,7 +97,6 @@ void load_images(t_game *game) {
     }
 }
 
-
 // Function to render the map
 void render_map(t_game *game) {
     int x, y;
@@ -106,13 +105,13 @@ void render_map(t_game *game) {
         for (x = 0; game->map[y][x]; x++) {
 
             if (game->map[y][x] == '1') {
-                img = game->img_wall; // Wall
+                img = game->img_wall;
             } else if (game->map[y][x] == 'P') {
-                img = game->img_player; // Player
+                img = game->img_player;
             } else if (game->map[y][x] == 'C') {
-                img = game->img_collect; // Collectable
+                img = game->img_collect;
             } else if (game->map[y][x] == 'E') {
-                img = game->img_exit; // Exit
+                img = game->img_exit;
             }
 
             // Place the image in the window at the appropriate position
