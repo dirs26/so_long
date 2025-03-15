@@ -6,11 +6,12 @@
 /*   By: diegrod2 <diegrod2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:00:21 by diegrod2          #+#    #+#             */
-/*   Updated: 2025/03/15 17:21:51 by diegrod2         ###   ########.fr       */
+/*   Updated: 2025/03/15 17:43:45 by diegrod2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#define TILE_SIZE 64
 
 int main() {
     t_game game;

@@ -6,7 +6,7 @@
 /*   By: diegrod2 <diegrod2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 13:06:49 by diegrod2          #+#    #+#             */
-/*   Updated: 2024/11/07 13:06:49 by diegrod2         ###   ########.fr       */
+/*   Updated: 2025/03/15 17:45:31 by diegrod2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 char	*mod_strjoin(char *s1, char *s2);
 size_t	ft_strlen(const char *str);
 char	*mod_strchr(const char *s, int c);
-
 char	*get_next_line(int fd);
 char	*read_from_file(char *basin_buffer, int fd);
 char	*extract_line(char *basin_buffer);

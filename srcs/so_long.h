@@ -6,7 +6,7 @@
 /*   By: diegrod2 <diegrod2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:00:08 by diegrod2          #+#    #+#             */
-/*   Updated: 2025/03/15 17:03:13 by diegrod2         ###   ########.fr       */
+/*   Updated: 2025/03/15 18:07:05 by diegrod2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,17 @@ typedef struct s_game {
     void *img_player;
     void *img_collect;
     void *img_exit;
-    char **map;      // Holds the map data (from the .ber file)
-    int tile_size;   // Size of each tile (e.g., 64)
+    char **map;
+	int		columns;
+	int		rows;
+    int tile_size;
 } t_game;
 
-void render_map(t_game *game);
-char **load_map(char *filename);
-void load_images(t_game *game);
-void clean_up_all(t_game *vars);
+void	render_map(t_game *game);
+void	load_map(char *argv, t_game *game);
+void	load_images(t_game *game);
+void	clean_up_all(t_game *vars);
 int	exit_win(t_game *vars);
-int main();
+int	main();
 
 #endif

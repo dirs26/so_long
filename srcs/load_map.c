@@ -6,54 +6,44 @@
 /*   By: diegrod2 <diegrod2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 17:20:21 by diegrod2          #+#    #+#             */
-/*   Updated: 2025/03/15 17:20:42 by diegrod2         ###   ########.fr       */
+/*   Updated: 2025/03/15 18:20:00 by diegrod2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include <fcntl.h>
 
-# define TILE_SIZE 64
-
-
-char **load_map(char *filename)
+void	error_map(void)
 {
-    int fd = open(filename, O_RDONLY);
-    if (fd == -1)
-    {
-        perror("Error opening map file");
-        return NULL;
-    }
+	ft_printf("Error opening file");
+	exit(EXIT_FAILURE);
+}
 
-    char **map = malloc(sizeof(char *) * 10);
-    if (!map)
-    {
-        perror("Error allocating memory for map");
-        close(fd);
-        return NULL;
-    }
+void	load_map(char *argv, t_game *game)
+{
+	int		fd;
+	char	*line;
+	char	**file_map;
 
-    char *line;
-    int i = 0;
-    int map_size = 10;  // Initial map size
-    while ((line = get_next_line(fd)) != NULL)
-    {
-        if (i >= map_size)
-        {
-            map = realloc(map, sizeof(char *) * map_size);
-            if (!map)
-            {
-                perror("Error reallocating memory for map");
-                close(fd);
-                return NULL;
-            }
-        }
-
-        map[i] = line;
-        i++;
-    }
-
-    map[i] = NULL;
-    close(fd);
-    return map;
+	game->rows = 0;
+	fd = open(argv, O_RDONLY);
+	if (fd < 0)
+		error_map();
+	line = get_next_line(fd);
+	if (!line)
+		error_map();
+	game->columns = (int)(ft_strlen(line) - 1);
+	file_map = (char **)malloc(sizeof(char *) * 50);
+	if (!file_map)
+		error_map();
+	while (line != NULL)
+	{
+		file_map[game->rows] = mod_strjoin(line);
+		free(line);
+		game->rows++;
+		line = get_next_line(fd);
+	}
+	file_map[game->rows] = NULL;
+	game->map = file_map;
+	close(fd);
 }
