@@ -6,118 +6,11 @@
 /*   By: diegrod2 <diegrod2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:00:21 by diegrod2          #+#    #+#             */
-/*   Updated: 2025/03/14 13:50:42 by diegrod2         ###   ########.fr       */
+/*   Updated: 2025/03/15 17:21:51 by diegrod2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#define TILE_SIZE 64
-
-// Function to load map dynamically
-char **load_map(const char *filename)
-{
-    int fd = popen(filename, O_RDONLY);
-    if (fd == -1)
-    {
-        perror("Error opening map file");
-        return NULL;
-    }
-
-    char **map = malloc(sizeof(char *) * 10);  // Start with space for 10 lines
-    if (!map)
-    {
-        perror("Error allocating memory for map");
-        close(fd);
-        return NULL;
-    }
-
-    char *line;
-    int i = 0;
-    int map_size = 10;  // Initial map size
-    while ((line = get_next_line(fd)) != NULL)
-    {
-        if (i >= map_size)
-        {
-            map = realloc(map, sizeof(char *) * map_size);
-            if (!map)
-            {
-                perror("Error reallocating memory for map");
-                close(fd);
-                return NULL;
-            }
-        }
-
-        map[i] = line;  // Store each line
-        i++;
-    }
-
-    map[i] = NULL;  // Null-terminate the map array
-    close(fd);
-    return map;
-}
-
-// Function to load images
-void load_images(t_game *game) {
-    int width;
-    int height;
-
-    game->img_wall = mlx_xpm_file_to_image(game->mlx, "imgs/cloud2.xpm", &width, &height);
-    if (!game->img_wall) {
-        fprintf(stderr, "Error: Failed to load cloud2.xpm\n");
-        exit(1); // Exit on error
-    }
-
-    game->img_floor = mlx_xpm_file_to_image(game->mlx, "imgs/blue.xpm", &width, &height);
-    if (!game->img_floor) {
-        fprintf(stderr, "Error: Failed to load blue.xpm\n");
-        exit(1);
-    }
-
-    game->img_player = mlx_xpm_file_to_image(game->mlx, "imgs/avion.xpm", &width, &height);
-    if (!game->img_player) {
-        fprintf(stderr, "Error: Failed to load avion.xpm\n");
-        exit(1);
-    }
-
-    game->img_collect = mlx_xpm_file_to_image(game->mlx, "imgs/bomb.xpm", &width, &height);
-    if (!game->img_collect) {
-        fprintf(stderr, "Error: Failed to load bomb.xpm\n");
-        exit(1);
-    }
-
-    game->img_exit = mlx_xpm_file_to_image(game->mlx, "imgs/porta.xpm", &width, &height);
-    if (!game->img_exit) {
-        fprintf(stderr, "Error: Failed to load porta.xpm\n");
-        exit(1);
-    }
-}
-
-// Function to render the map
-void render_map(t_game *game) {
-    int x, y;
-
-    for (y = 0; game->map[y]; y++) {
-        for (x = 0; game->map[y][x]; x++) {
-
-            if (game->map[y][x] == '1') {
-                img = game->img_wall;
-            } else if (game->map[y][x] == 'P') {
-                img = game->img_player;
-            } else if (game->map[y][x] == 'C') {
-                img = game->img_collect;
-            } else if (game->map[y][x] == 'E') {
-                img = game->img_exit;
-            }
-
-            // Place the image in the window at the appropriate position
-            mlx_put_image_to_window(game->mlx, game->win, img, x * game->tile_size, y * game->tile_size);
-        }
-    }
-}
 
 int main() {
     t_game game;

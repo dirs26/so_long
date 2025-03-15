@@ -1,5 +1,5 @@
 NAME = so_long
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = $(wildcard srcs/*.c)   # All .c files in srcs/ directory
