@@ -6,7 +6,7 @@
 /*   By: diegrod2 <diegrod2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 17:20:21 by diegrod2          #+#    #+#             */
-/*   Updated: 2025/03/15 18:20:00 by diegrod2         ###   ########.fr       */
+/*   Updated: 2025/03/15 18:24:00 by diegrod2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	load_map(char *argv, t_game *game)
 		error_map();
 	while (line != NULL)
 	{
-		file_map[game->rows] = mod_strjoin(line);
+		file_map[game->rows] = ft_strdup(line);
 		free(line);
 		game->rows++;
 		line = get_next_line(fd);
