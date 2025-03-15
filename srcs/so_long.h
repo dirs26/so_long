@@ -6,7 +6,7 @@
 /*   By: diegrod2 <diegrod2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:00:08 by diegrod2          #+#    #+#             */
-/*   Updated: 2025/03/15 18:50:39 by diegrod2         ###   ########.fr       */
+/*   Updated: 2025/03/15 18:53:32 by diegrod2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@
 # include <unistd.h>
 
 typedef struct s_game {
-    void *mlx;
-    void *win;
-	void *exit;
-    void *img_wall;
-    void *img_floor;
-    void *img_player;
-    void *img_collect;
-    void *img_exit;
-    char **map;
+    void	*mlx;
+    void	*win;
+	void	*exit;
+    void	*img_wall;
+    void	*img_floor;
+    void	*img_player;
+    void	*img_collect;
+    void	*img_exit;
+    char	**map;
 	int		columns;
 	int		rows;
-    int tile_size;
-} t_game;
+    int		tile_size;
+}			t_game;
 
 void	render_map(t_game *game);
 void	load_map(char *argv, t_game *game);
