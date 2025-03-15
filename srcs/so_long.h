@@ -6,7 +6,7 @@
 /*   By: diegrod2 <diegrod2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:00:08 by diegrod2          #+#    #+#             */
-/*   Updated: 2025/03/15 18:53:32 by diegrod2         ###   ########.fr       */
+/*   Updated: 2025/03/15 18:59:03 by diegrod2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_game {
+typedef struct s_game 
+{
     void	*mlx;
     void	*win;
 	void	*exit;
