@@ -6,7 +6,7 @@
 /*   By: diegrod2 <diegrod2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:00:08 by diegrod2          #+#    #+#             */
-/*   Updated: 2025/03/15 18:24:17 by diegrod2         ###   ########.fr       */
+/*   Updated: 2025/03/15 18:50:39 by diegrod2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "../ft_printf/ft_printf.h"
 # include "../libft/libft.h"
 # include "../mlx/mlx.h"
+
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
