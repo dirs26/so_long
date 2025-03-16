@@ -6,12 +6,11 @@
 /*   By: diegrod2 <diegrod2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 17:20:21 by diegrod2          #+#    #+#             */
-/*   Updated: 2025/03/15 18:24:00 by diegrod2         ###   ########.fr       */
+/*   Updated: 2025/03/16 00:19:27 by diegrod2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <fcntl.h>
 
 void	error_map(void)
 {
