@@ -6,7 +6,7 @@
 /*   By: diegrod2 <diegrod2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 23:52:35 by diegrod2          #+#    #+#             */
-/*   Updated: 2025/03/16 00:29:00 by diegrod2         ###   ########.fr       */
+/*   Updated: 2025/03/16 16:35:29 by diegrod2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,6 @@ void	key_d(t_game *game)
 			mlx_put_image_to_window(game->mlx, game->win, game->img_floor,
 				game->pos_x, game->pos_y);
 			game->pos_x += 64;
-			if (game->moves % 2 == 0)
-				mlx_put_image_to_window(game->mlx, game->win, game->player_move,
-					game->pos_x, game->pos_y);
-			else
 				mlx_put_image_to_window(game->mlx, game->win, game->img_player,
 					game->pos_x, game->pos_y);
 			game->moves++;

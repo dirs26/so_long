@@ -6,7 +6,7 @@
 /*   By: diegrod2 <diegrod2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:00:08 by diegrod2          #+#    #+#             */
-/*   Updated: 2025/03/16 00:18:57 by diegrod2         ###   ########.fr       */
+/*   Updated: 2025/03/16 16:38:10 by diegrod2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef struct s_game
     void	*img_player;
     void	*img_collect;
     void	*img_exit;
-	void	*player_move;
     char	**map;
 	int		count_coins;
 	int		count_moves;
@@ -48,12 +47,13 @@ typedef struct s_game
 	int		moves;
 }			t_game;
 
+int		exit_in(t_game *game);
 void	render_map(t_game *game);
 char	*ft_strdup(const char *s);
 void	clean_up_all(t_game *game);
 void	load_images(t_game *game);
 void	load_map(char *argv, t_game *game);
-int	loop(int keycode, t_game *game);
+int		loop(int keycode, t_game *game);
 void	check_items(t_game *game);
 void	check_file(char *file, size_t size);
 int		walls(t_game *game);
@@ -65,7 +65,6 @@ void	place_textures(t_game *game);
 void	start_count(t_game *game);
 void	error_moves(t_game *game);
 void	print_moves(t_game *game);
-int	exit_win(t_game *game);
-int	main();
+int		exit_win(t_game *game);
 
 #endif

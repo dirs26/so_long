@@ -6,7 +6,7 @@
 /*   By: diegrod2 <diegrod2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 18:36:38 by diegrod2          #+#    #+#             */
-/*   Updated: 2025/03/15 23:38:08 by diegrod2         ###   ########.fr       */
+/*   Updated: 2025/03/16 16:37:37 by diegrod2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	clean_up_imgs(t_game *game)
 	mlx_destroy_image(game->mlx, game->img_floor);
 	mlx_destroy_image(game->mlx, game->img_wall);
 	mlx_destroy_image(game->mlx, game->img_player);
-	mlx_destroy_image(game->mlx, game->player_move);
 	mlx_destroy_image(game->mlx, game->img_exit);
 	mlx_destroy_image(game->mlx, game->img_collect);
 }
